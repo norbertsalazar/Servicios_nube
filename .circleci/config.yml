@@ -20,8 +20,7 @@ jobs: # a collection of steps
       - run:
           name: install-npm
           command: npm install 
-          
-          
+   
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
@@ -31,7 +30,7 @@ jobs: # a collection of steps
           command: npm test
       - run: 
           name: audit
-          command: npm audit fix --force
+          command: npm audit fix
       
     
       - setup_remote_docker:
@@ -55,5 +54,6 @@ workflows:
             branches:
               only:
                 - master
+                
     jobs:
       - build
