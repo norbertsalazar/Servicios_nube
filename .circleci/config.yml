@@ -19,7 +19,7 @@ jobs: # a collection of steps
             npm --version
       - run:
           name: install-npm
-          command: npm install 
+          command: npm update 
    
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package-lock.json" }}
