@@ -27,10 +27,10 @@ jobs: # a collection of steps
             - ./node_modules
       - run: # run tests
           name: test
-          command: npm test
+          command: npm audit fix
       - run: 
           name: audit
-          command: npm audit fix
+          command: npm audit fix --force
       
     
       - setup_remote_docker:
