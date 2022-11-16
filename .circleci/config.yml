@@ -15,12 +15,13 @@ jobs: # a collection of steps
       - run:
           name: Check npm and node version
           command: |
-            npm audit fix
             node --version
             npm --version
       - run:
           name: install-npm
-          command: npm install
+          command: npm install 
+          
+          
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
@@ -30,7 +31,7 @@ jobs: # a collection of steps
           command: npm test
       - run: 
           name: audit
-          command: npm audit
+          command: npm audit fix
       
     
       - setup_remote_docker:
