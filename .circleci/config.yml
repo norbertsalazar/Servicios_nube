@@ -14,7 +14,8 @@ jobs: # a collection of steps
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Check npm and node version
-          command: npm audit fix
+          command: |
+            npm audit fix
             node --version
             npm --version
       - run:
